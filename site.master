@@ -1,0 +1,244 @@
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <title>DocTime - Hospital</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="assets/lib/animate/animate.min.css" />
+    <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/lib/toastr/toastr.min.css" rel="stylesheet" />
+
+     <!-- Include jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Include Toastr JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!--  Stylesheet -->
+    <link href="assets/css/main_style.css" rel="stylesheet">
+    
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        <!-- Topbar Start -->
+        <div class="container-fluid topbar px-0 px-lg-4 bg-light py-1 d-none d-lg-block">
+            <div class="container-fluid">
+                <div class="row gx-0 align-items-center">
+                    <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                        <div class="d-flex flex-wrap">
+                            <div class="border-end border-primary pe-3">
+                                <a href="https://maps.app.goo.gl/oPTaphUyHoWK1rnr8" target="_blank" class="text-muted small">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
+                            </div>
+                            <div class="ps-3">
+                                <a href="mailto:example@gmail.com" class="text-muted small"><i class="fas fa-envelope text-primary me-2"></i>contact_hospital@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <div class="d-flex justify-content-end">
+                            <div class="d-flex flex-wrap border-end border-primary pe-3">
+                                <a class="btn p-0 text-primary mt-2 me-3" href="https://www.facebook.com/login/"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn p-0 text-primary mt-2 me-3" href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D"><i class="fab fa-twitter"></i></a>
+                                <a class="btn p-0 text-primary mt-2 me-3" href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div class="d-flex">
+                                <ul class="d-flex patient_log pt-2" style="list-style:none;">
+                                    <li class="bg-info">
+                                        <div class="dropdown">
+                                            <a href="login.aspx" runat="server" data-bs-toggle="dropdown"><span>Sign In </span> <i class="fas fa-sign-in-alt px-2"></i> </a>
+                                            <div class="dropdown-menu">
+                                                <a href="login.aspx" class="dropdown-item">Patient Portal</a>
+                                                <a href="doctorlogin.aspx" class="dropdown-item">Doctor Portal</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="bg-info"><a href="registration.aspx">Register<i class="fas fa-user-plus px-2"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light"> 
+                    <a href="#" class="navbar-brand p-0">
+                        <h1 class="text-primary mb-0"><i class="fab fa-slack me-2"></i> DocTime</h1>
+                        <!-- <img src="img/logo.png" alt="Logo"> -->
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav mx-0 mx-lg-auto">
+                            <a href="default.aspx" class="nav-item nav-link active">Home</a>
+                            <a href="about.aspx" class="nav-item nav-link">About</a>
+                            <a href="gallery.aspx" class="nav-item nav-link">Gallery</a>
+                            <!--
+                                <div class="nav-item dropdown">
+                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                     <span class="dropdown-toggle">Patient Care</span>
+                                 </a>
+                                            <div class="dropdown-menu">
+                                     <a href="#" class="dropdown-item">Find a Doctor</a>
+                                         <a href="#" class="dropdown-item">Service Exellence</a>
+                                    </div>
+                                 </div>-->
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                    <span class="dropdown-toggle">Specialities</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="specialties.aspx" class="dropdown-item">Dermatologist</a>
+                                    <a href="specialties.aspx" class="dropdown-item">Physiotherapy</a>
+                                    <a href="specialties.aspx" class="dropdown-item">Dentist</a>
+                                </div>
+                            </div>
+                            <a href="contact.aspx" class="nav-item nav-link">Contact</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                    <span class="dropdown-toggle">SignIn</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="login.aspx" class="dropdown-item">Patient Login</a>
+                                    <a href="doctorlogin.aspx" class="dropdown-item">Doctor Login</a>
+                                </div>
+                            </div>
+                            <div class="nav-btn px-3">
+                                <a href="bookAppointment.aspx" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Book Apppointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
+                            <i class="fa fa-phone-alt fa-2x"></i>
+                            <div class="position-absolute" style="top: 7px; right: 12px;">
+                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                            </div>
+                        </a>
+                        <div class="d-flex flex-column ms-3">
+                            <span>Call to Our Experts</span>
+                            <a href="tel:+ 0123 456 7890"><span class="text-dark">Free: +91 78782 77777</span></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h1 class="text-primary mb-0"><i class="fab fa-slack me-2"></i> DocTime</h1>
+                            <p>DocTime Multi Speciality Hospital is one of the established and expanding Multi Speciality hospital located in the heart of the city. We are working closely with local population and corporate world in and within Baroda.
+                            </p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-share fa-2x text-white me-2"></i>
+                                <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href="https://www.facebook.com/login/"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D"><i class="fab fa-twitter"></i></a>
+                                <a class="btn-square btn btn-primary text-white rounded-circle mx-1" href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Quick Links</h4>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Specialities</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i>  Patient Care</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Corporate Client</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> International Patient</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Health Check Up</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Facilities</h4>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Types of Room</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Waiting Room</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Parking</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Reception</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Cashless</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Ambulance</a>
+                            <a href=""><i class="fas fa-angle-right me-2"></i> Canteen</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="mb-4 text-white">Contact Info</h4>
+                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Road, Vadodara, Gujarat.</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> contact_hospital@gmail.com</a>
+                            <a href="" class="mb-3"><i class="fa fa-phone-alt me-2"></i> +91 78782 77777</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-white"><a href="#"><i class="fas fa-copyright text-light me-2"></i>DocTime</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+    </form>
+    <!-- Back to Top
+        <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+         -->
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/lib/wow/wow.min.js"></script>
+        <script src="assets/lib/counterup/counterup.min.js"></script>
+        <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+        <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>        
+
+        <!-- Template Javascript -->
+        <script src="assets/js/main.js"></script>
+</body>
+</html>
